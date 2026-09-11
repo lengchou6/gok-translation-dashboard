@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b1220" />
+  <meta name="description" content="GOK 26年8月翻译量级概览" />
+  <title>GOK 26年8月翻译量级</title>
+  <style>
+    :root{--bg:#08101e;--panel:#101b2d;--panel2:#15243a;--line:#263951;--text:#eef5ff;--muted:#8fa4bd;--cyan:#59d7e6;--amber:#f5b85a;--green:#7ee2ae;--red:#ff8c7a;--shadow:0 18px 50px rgba(0,0,0,.25)}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 8% 0%,#142c4b 0%,transparent 32%),linear-gradient(145deg,#08101e 0%,#0b1424 50%,#09111e 100%);color:var(--text);font-family:Inter,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.5;min-height:100vh}
+    .wrap{width:min(1440px,calc(100% - 48px));margin:0 auto;padding:34px 0 56px}.top{display:flex;justify-content:space-between;gap:28px;align-items:flex-end;margin-bottom:26px}.eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);font-weight:700}.title{font-size:clamp(28px,4vw,48px);line-height:1.08;letter-spacing:-.04em;margin:8px 0 10px}.sub{color:var(--muted);font-size:15px;margin:0}.source{font-size:12px;color:var(--muted);text-align:right;max-width:330px}.source strong{display:block;color:#c7d9ee;font-size:13px;margin-bottom:4px}.metrics{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-bottom:22px}.metric{background:linear-gradient(145deg,rgba(21,36,58,.9),rgba(13,25,43,.9));border:1px solid var(--line);border-radius:16px;padding:17px 18px;box-shadow:var(--shadow)}.metric .label{font-size:12px;color:var(--muted);margin-bottom:8px}.metric .value{font-size:28px;font-weight:750;letter-spacing:-.03em}.metric .unit{font-size:12px;color:var(--muted);margin-left:5px;font-weight:500}.metric.accent{border-color:rgba(89,215,230,.42);background:linear-gradient(145deg,rgba(24,70,84,.65),rgba(13,34,55,.9))}.metric.accent .value{color:var(--cyan)}.metric.warm .value{color:var(--amber)}
+    .toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:20px 0}.control{background:#0f1b2c;border:1px solid var(--line);color:var(--text);border-radius:10px;padding:10px 12px;font-size:14px;min-height:42px}.control::placeholder{color:#70869f}.control:focus{outline:2px solid rgba(89,215,230,.35);outline-offset:1px}.legend{margin-left:auto;color:var(--muted);font-size:12px}.section{margin-top:22px}.section-head{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin:0 0 12px}.section h2{font-size:20px;margin:0;letter-spacing:-.02em}.section-note{font-size:12px;color:var(--muted)}
+    .language-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.lang-card{background:rgba(16,27,45,.9);border:1px solid var(--line);border-radius:14px;overflow:hidden}.lang-top{padding:14px 15px 11px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}.lang-name{font-weight:700}.lang-total{font-size:18px;color:var(--cyan);font-weight:750}.lang-unit{font-size:11px;color:var(--muted);margin-left:3px}.rows{padding:4px 0}.r{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;padding:9px 15px;color:#c0d0e1;font-size:13px}.r:hover{background:rgba(89,215,230,.06)}.r .n{color:#f2f7ff;font-variant-numeric:tabular-nums;font-weight:650}.r.muted{color:#6f849e}.r.muted .n{color:#7186a0;font-weight:500}.table-wrap{border:1px solid var(--line);border-radius:14px;overflow:auto;background:rgba(16,27,45,.9)}table{width:100%;border-collapse:collapse;min-width:1060px;font-size:13px}th,td{padding:13px 14px;border-bottom:1px solid rgba(38,57,81,.78);text-align:left;vertical-align:top}th{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#9bb0c7;background:#132238;position:sticky;top:0;z-index:1}tbody tr:hover{background:rgba(89,215,230,.045)}td.num{text-align:right;font-variant-numeric:tabular-nums;font-weight:650;color:#e8f1fd}.category{font-weight:700;color:#f3f7fd}.detail{color:#b2c6db}.links{display:flex;gap:6px;flex-wrap:wrap}.link{display:inline-flex;align-items:center;gap:5px;color:var(--cyan);text-decoration:none;border:1px solid rgba(89,215,230,.26);background:rgba(89,215,230,.07);border-radius:7px;padding:5px 7px;font-size:12px;white-space:nowrap}.link:hover{background:rgba(89,215,230,.16);border-color:rgba(89,215,230,.55)}.empty{padding:28px;text-align:center;color:var(--muted)}.foot{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:18px;color:var(--muted);font-size:12px}.foot b{color:#c9d8e9;font-weight:600}
+    @media (max-width:1050px){.metrics{grid-template-columns:repeat(3,1fr)}.language-grid{grid-template-columns:repeat(3,1fr)}.top{align-items:flex-start;flex-direction:column}.source{text-align:left}}
+    @media (max-width:700px){.wrap{width:min(100% - 28px,1440px);padding-top:24px}.metrics{grid-template-columns:repeat(2,1fr)}.metric .value{font-size:23px}.language-grid{grid-template-columns:repeat(2,1fr)}.legend{margin-left:0;width:100%}.foot{flex-direction:column}}
+    @media (max-width:470px){.metrics,.language-grid{grid-template-columns:1fr}.title{font-size:32px}}
+    /* Frontend Design pass: a restrained “translation control room” system */
+    :root{--bg:#070d16;--panel:#0d1724;--panel2:#122233;--line:#294057;--text:#f3f7fb;--muted:#91a4b8;--cyan:#74d5df;--amber:#f1b35d;--shadow:0 14px 36px rgba(0,0,0,.2)}
+    body{background-color:var(--bg);background-image:linear-gradient(rgba(116,213,223,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(116,213,223,.035) 1px,transparent 1px),radial-gradient(circle at 88% 0%,#173348 0%,transparent 28%);background-size:28px 28px,28px 28px,auto}
+    .wrap{width:min(1500px,calc(100% - 64px));padding-top:42px}.top{position:relative;border-left:3px solid var(--amber);padding:4px 0 8px 22px;margin-bottom:30px}.title{font-weight:780;letter-spacing:-.055em}.source{padding-right:24px;line-height:1.7}.source strong{color:var(--cyan);text-transform:uppercase;letter-spacing:.12em;font-size:11px}
+    .metrics{grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}.metric{border-radius:4px;padding:16px 17px;box-shadow:var(--shadow);position:relative;overflow:hidden}.metric::before{content:'';position:absolute;left:0;top:0;width:100%;height:2px;background:#38516c}.metric.accent::before{background:var(--cyan)}.metric.warm::before{background:var(--amber)}.metric .value{font-size:26px}.metric .label{letter-spacing:.03em}.section{border-top:1px solid rgba(116,213,223,.24);padding-top:18px}.section h2{font-size:19px}.language-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}.lang-card{border-radius:4px;background:rgba(13,23,36,.94);box-shadow:var(--shadow)}.lang-top{padding:14px 15px 12px;background:linear-gradient(90deg,rgba(116,213,223,.1),transparent);border-bottom-color:#2b435c}.lang-total{font-size:17px}.r{padding:8px 15px}.r .n{font-weight:700}.toolbar{padding:10px;border:1px solid rgba(116,213,223,.16);background:rgba(9,17,28,.72);margin-top:22px}.control{border-radius:3px;background:#0a1421;border-color:#2d4862}.table-wrap{border-radius:4px;background:rgba(13,23,36,.95);box-shadow:var(--shadow)}th{background:#14283d;color:#b8cedf;letter-spacing:.12em}td,th{border-bottom-color:#20364d}.link{border-radius:3px;color:#83e3eb}.foot{border-top-color:#294057}
+    @media (max-width:1200px){.metrics{grid-template-columns:repeat(3,1fr)}.language-grid{grid-template-columns:repeat(3,1fr)}}
+    @media (max-width:700px){.wrap{width:calc(100% - 28px);padding-top:26px}.source{padding-right:0}.metrics{grid-template-columns:repeat(2,1fr)}.language-grid{grid-template-columns:repeat(2,1fr)}}
+    /* Minimalist pass: quiet surfaces, one accent, no decoration */
+    :root{--bg:#f5f6f8;--panel:#ffffff;--panel2:#ffffff;--line:#e1e5ea;--text:#17202b;--muted:#6c7785;--cyan:#1769d1;--amber:#1769d1;--shadow:none}
+    body{background:var(--bg);background-image:none;color:var(--text)}
+    .wrap{width:min(1320px,calc(100% - 56px));padding:34px 0 48px}.top{border-left:0;border-bottom:1px solid var(--line);padding:0 0 24px;margin-bottom:22px}.title{font-size:clamp(30px,4vw,42px);font-weight:720;letter-spacing:-.045em}.source{padding-right:0;color:var(--muted);font-size:12px}.source strong{color:var(--muted);letter-spacing:.08em}
+    .metrics{grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}.metric{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px;box-shadow:none}.metric::before{display:none}.metric.accent,.metric.warm{border-color:var(--line);background:var(--panel)}.metric.accent .value,.metric.warm .value,.metric .value{color:var(--text)}.metric.accent .label,.metric.warm .label{color:var(--muted)}.metric .value{font-size:25px}.metric .unit{color:var(--muted)}
+    .toolbar{border:1px solid var(--line);background:var(--panel);border-radius:8px;padding:10px;margin-top:18px}.control{background:#fff;border:1px solid #d7dde5;color:var(--text);border-radius:6px}.control:focus{outline:2px solid rgba(23,105,209,.18)}.legend{color:var(--muted)}
+    .section{border-top:0;padding-top:24px;margin-top:4px}.section-head{margin-bottom:10px}.section h2{font-size:18px;font-weight:700}.language-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}.lang-card{background:var(--panel);border:1px solid var(--line);border-radius:8px;box-shadow:none}.lang-top{background:#fafbfc;border-bottom:1px solid var(--line);padding:14px 15px 12px}.lang-total{color:var(--text);font-size:17px}.r{color:#4c5866;padding:9px 15px}.r .n{color:var(--text)}.r.muted,.r.muted .n{color:#a2abb5}
+    .table-wrap{background:var(--panel);border:1px solid var(--line);border-radius:8px;box-shadow:none}th{background:#fafbfc;color:#6b7683}td,th{border-bottom:1px solid var(--line)}td.num{color:var(--text)}.link{color:var(--cyan);background:#f2f7ff;border-color:#c9dcf6;border-radius:5px}.foot{border-top:1px solid var(--line);color:var(--muted)}
+    @media (max-width:1200px){.metrics{grid-template-columns:repeat(3,1fr)}.language-grid{grid-template-columns:repeat(3,1fr)}}
+    @media (max-width:700px){.wrap{width:calc(100% - 28px);padding-top:24px}.metrics{grid-template-columns:repeat(2,1fr)}.language-grid{grid-template-columns:repeat(2,1fr)}}
+    /* Styled minimalism: ink, brass and mist */
+    :root{--bg:#111417;--panel:#191d21;--panel2:#1d2328;--line:#343b40;--text:#f3f0e9;--muted:#98a0a0;--cyan:#9bc9c5;--amber:#dfad66;--shadow:none}
+    body{background:var(--bg);background-image:radial-gradient(circle at 82% -8%,rgba(155,201,197,.12),transparent 30%),radial-gradient(circle at 3% 110%,rgba(223,173,102,.06),transparent 28%);color:var(--text)}
+    .wrap{width:min(1280px,calc(100% - 56px));padding:38px 0 52px}.top{border-left:4px solid var(--amber);border-bottom:1px solid var(--line);padding:0 0 26px 20px;margin-bottom:24px}.title{font-size:clamp(30px,4vw,43px);font-weight:680;letter-spacing:-.055em}.source{color:var(--muted);font-size:12px;line-height:1.8}.source strong{color:var(--amber);letter-spacing:.12em}
+    .metrics{grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}.metric{background:var(--panel);border:1px solid var(--line);border-top:2px solid #596166;border-radius:3px;padding:15px 16px;box-shadow:none}.metric.accent{border-top-color:var(--cyan)}.metric.warm{border-top-color:var(--amber)}.metric.accent,.metric.warm{background:var(--panel)}.metric .label{color:var(--muted)}.metric .value,.metric.accent .value,.metric.warm .value{color:var(--text);font-size:25px}.metric .unit{color:var(--muted)}
+    .toolbar{border:1px solid var(--line);background:transparent;border-radius:3px;padding:9px;margin-top:20px}.control{background:#15191c;border:1px solid #3a4348;color:var(--text);border-radius:3px}.control:focus{outline:2px solid rgba(155,201,197,.22)}.legend{color:var(--muted)}
+    .section{border-top:1px solid var(--line);padding-top:20px;margin-top:24px}.section h2{font-size:18px;color:var(--text);font-weight:650}.language-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}.lang-card{background:var(--panel);border:1px solid var(--line);border-radius:3px;box-shadow:none}.lang-top{background:var(--panel2);border-bottom:1px solid var(--line);padding:13px 14px 11px}.lang-total{color:var(--cyan);font-size:17px}.r{color:#bdc3c2;padding:8px 14px}.r .n{color:var(--text)}.r.muted,.r.muted .n{color:#697477}
+    .table-wrap{background:var(--panel);border:1px solid var(--line);border-radius:3px;box-shadow:none}th{background:var(--panel2);color:var(--muted)}td,th{border-bottom:1px solid var(--line)}td.num{color:var(--text)}.link{color:var(--cyan);background:rgba(155,201,197,.08);border-color:rgba(155,201,197,.35);border-radius:3px}.foot{border-top-color:var(--line);color:var(--muted)}
+    @media (max-width:1200px){.metrics{grid-template-columns:repeat(3,1fr)}.language-grid{grid-template-columns:repeat(3,1fr)}}
+    @media (max-width:700px){.wrap{width:calc(100% - 28px);padding-top:26px}.top{padding-left:14px}.metrics{grid-template-columns:repeat(2,1fr)}.language-grid{grid-template-columns:repeat(2,1fr)}}
+    /* GOK operations system: warm iron, parchment light and disciplined hierarchy */
+    :root{--bg:#171b1f;--panel:#22282d;--panel2:#2a3238;--line:#3b454c;--text:#f4eee4;--muted:#a2aaa9;--cyan:#a6d0c8;--amber:#e1784f;--shadow:0 10px 28px rgba(0,0,0,.16)}
+    body{background:var(--bg);background-image:radial-gradient(ellipse at 92% -12%,rgba(166,208,200,.13),transparent 32%),linear-gradient(180deg,#1a2025 0%,#15191d 100%);color:var(--text)}
+    .wrap{width:min(1340px,calc(100% - 64px));padding:42px 0 58px}.top{border-left:0;border-bottom:1px solid var(--line);padding:0 0 25px;margin-bottom:25px}.top>div:first-child{max-width:700px}.title{font-size:clamp(31px,4vw,46px);font-weight:720;letter-spacing:-.06em}.source{color:var(--muted);font-size:12px;line-height:1.75}.source strong{color:var(--amber);letter-spacing:.1em}
+    .metrics{grid-template-columns:repeat(6,minmax(0,1fr));gap:9px}.metric{background:var(--panel);border:1px solid var(--line);border-top:2px solid #596269;border-radius:5px;padding:16px 17px;box-shadow:var(--shadow)}.metric.accent{border-top-color:var(--cyan)}.metric.warm{border-top-color:var(--amber)}.metric.accent,.metric.warm{background:var(--panel)}.metric .label{color:var(--muted)}.metric .value,.metric.accent .value,.metric.warm .value{color:var(--text);font-size:26px}.metric .unit{color:var(--muted)}
+    .toolbar{border:1px solid var(--line);background:rgba(34,40,45,.72);border-radius:5px;padding:10px;margin-top:20px}.control{background:#1d2328;border:1px solid #48535a;color:var(--text);border-radius:4px}.control:focus{outline:2px solid rgba(166,208,200,.24)}.legend{color:var(--muted)}
+    .section{border-top:1px solid var(--line);padding-top:20px;margin-top:25px}.section h2{font-size:18px;color:var(--text);font-weight:680}.language-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:9px}.lang-card{background:var(--panel);border:1px solid var(--line);border-radius:5px;box-shadow:var(--shadow)}.lang-top{background:var(--panel2);border-bottom:1px solid var(--line);padding:14px 15px 12px}.lang-total{color:var(--cyan);font-size:18px}.r{color:#c2c8c5;padding:8px 15px}.r .n{color:var(--text)}.r.muted,.r.muted .n{color:#738087}
+    .table-wrap{background:var(--panel);border:1px solid var(--line);border-radius:5px;box-shadow:var(--shadow)}th{background:var(--panel2);color:#b5c0bd}td,th{border-bottom:1px solid var(--line)}td.num{color:var(--text)}.link{color:var(--cyan);background:rgba(166,208,200,.08);border-color:rgba(166,208,200,.32);border-radius:4px}.foot{border-top-color:var(--line);color:var(--muted)}
+    @media (max-width:1200px){.metrics{grid-template-columns:repeat(3,1fr)}.language-grid{grid-template-columns:repeat(3,1fr)}}
+    @media (max-width:700px){.wrap{width:calc(100% - 28px);padding-top:28px}.metrics{grid-template-columns:repeat(2,1fr)}.language-grid{grid-template-columns:repeat(2,1fr)}}
+    /* Reference refinements */
+    .toolbar{display:flex;align-items:center;gap:10px}.toolbar .legend{margin-left:auto}
+    .metric:last-child{grid-column:span 2;border-color:rgba(223,173,102,.55);background:#2a2f33;padding:21px 20px}.metric:last-child .label{color:#c0aaa0}.metric:last-child .value{font-size:34px;color:var(--amber)}.metric:last-child .unit{font-size:12px;color:#c0aaa0}
+    td.num{text-align:center!important}
+    th:nth-child(n+3):nth-child(-n+7){text-align:center!important}
+    .proof-inline{display:block;color:var(--amber);font-size:.76em;font-weight:550;margin:3px 0 0;white-space:nowrap;line-height:1.1}
+    .lang-share{display:flex;align-items:center;gap:10px;padding:15px}.lang-share>span{color:var(--muted);font-size:12px;min-width:34px;text-align:right}.lang-share-track{height:5px;background:#39434a;border-radius:99px;overflow:hidden;flex:1}.lang-share-fill{height:100%;background:linear-gradient(90deg,var(--cyan),#d4b06b);border-radius:99px}
+    .metric-share{display:flex;align-items:center;gap:9px;margin-top:13px}.metric-share>span{color:var(--muted);font-size:11px;min-width:34px;text-align:right}.metric-share-track{height:4px;background:#3b454c;border-radius:99px;overflow:hidden;flex:1}.metric-share-fill{height:100%;background:linear-gradient(90deg,var(--cyan),#d4b06b);border-radius:99px}
+    @media (max-width:1200px){.metric:last-child{grid-column:span 1}}
+    .title-month-select{appearance:none;border:0;border-bottom:2px dotted var(--amber);border-radius:0;background:transparent;color:var(--text);font:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;padding:0 28px 2px 0;cursor:pointer;background-image:linear-gradient(45deg,transparent 50%,var(--amber) 50%),linear-gradient(135deg,var(--amber) 50%,transparent 50%);background-position:calc(100% - 12px) 54%,calc(100% - 6px) 54%;background-size:6px 6px,6px 6px;background-repeat:no-repeat}.title-month-select:focus-visible{outline:2px solid rgba(225,184,92,.55);outline-offset:5px}.title-month-select option{background:#1a3024;color:var(--text);font-size:16px}
+    @media (max-width:700px){.toolbar{align-items:stretch;flex-wrap:wrap}.toolbar .legend{width:100%;margin-left:0}.metric:last-child{grid-column:span 2}}
+    /* 绿野仙踪：森林绿幕、黄砖道路与红宝石提示色 */
+    :root{--bg:#102019;--panel:#172b22;--panel2:#203b2d;--line:#3e604b;--text:#f3f0df;--muted:#a9baa7;--cyan:#a8d6c2;--amber:#e1b85c;--ruby:#d86a58;--shadow:0 14px 32px rgba(0,0,0,.22)}
+    body{background:var(--bg);background-image:radial-gradient(ellipse at 86% -10%,rgba(119,170,105,.24),transparent 34%),radial-gradient(ellipse at 8% 78%,rgba(24,83,56,.3),transparent 36%),linear-gradient(145deg,#102019 0%,#13261e 52%,#0d1914 100%)}
+    .top{border-bottom-color:rgba(168,214,194,.28)}.eyebrow{color:var(--amber)}.title{color:#f5f2e6;text-shadow:0 3px 18px rgba(0,0,0,.3)}.source strong{color:var(--amber)}
+    .metric{background:linear-gradient(145deg,rgba(30,60,44,.94),rgba(20,42,32,.96));border-color:var(--line);border-top-color:#739d69}.metric.accent{border-top-color:var(--cyan)}.metric.warm{border-top-color:var(--amber)}.metric.accent .value{color:var(--cyan)}.metric.warm .value{color:var(--amber)}.metric:last-child{border-color:rgba(225,184,92,.62);background:linear-gradient(145deg,#263e2d,#1b3024)}.metric:last-child .value{color:var(--amber)}
+    .metric-share-track{background:#34513e}.metric-share-fill{background:repeating-linear-gradient(90deg,#e1b85c 0 18px,#f0ca73 18px 21px,#b59a53 21px 24px);box-shadow:0 0 10px rgba(225,184,92,.22)}
+    .section{border-top-color:rgba(168,214,194,.26)}.section h2{color:#f3f0df}.table-wrap{background:rgba(23,43,34,.96);border-color:var(--line)}th{background:#284536;color:#d0dfcf}td,th{border-bottom-color:#355540}td.num{color:#f4f0df}.link{color:#b4e3d1;background:rgba(107,170,126,.12);border-color:rgba(168,214,194,.34)}.link:hover{background:rgba(225,184,92,.14);border-color:rgba(225,184,92,.58);color:#ffe7a7}.proof-inline{color:var(--ruby)}.foot{border-top-color:rgba(168,214,194,.3);color:var(--muted)}.foot b{color:var(--amber)}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="top">
+      <div><h1 class="title" id="pageTitle">GOK <select class="title-month-select" id="monthSelect" aria-label="选择月份"><option>26年8月</option><option>26年7月</option><option>26年6月</option><option>26年5月</option><option>26年4月</option><option>26年3月</option><option>26年2月</option><option>26年1月</option></select>翻译量级</h1></div>
+      <div class="source"><strong>数据来源</strong>《GOK_翻译需求量级统计》</div>
+    </header>
+    <section class="metrics" id="metrics"></section>
+    <section class="section"><div class="section-head"><h2>需求明细</h2><span class="section-note" id="resultCount"></span></div><div class="table-wrap"><table><thead><tr><th>需求类别</th><th>需求细化</th><th>简中</th><th>英语</th><th>俄语</th><th>土耳其语</th><th>德语</th><th>需求链接</th></tr></thead><tbody id="detailBody"></tbody></table><div class="empty" id="empty" hidden>没有匹配的需求记录</div></div></section>
+    <footer class="foot"><span id="scopeText">统计范围：26年8月 · 仅统计五种语言</span><span id="effectiveText"></span></footer>
+  </main>
+  <script>
+    const languages=[
+      {key:'zh',name:'简中',unit:'字'}, {key:'en',name:'英语',unit:'字'}, {key:'ru',name:'俄语',unit:'词'}, {key:'tr',name:'土耳其语',unit:'词'}, {key:'de',name:'德语',unit:'词'}
+    ];
+    const augustRecords=[
+      {category:'版本需求',detail:'4.0热更1+2',values:{zh:6570,en:9702,ru:5458,tr:0,de:0},proof:{},links:[['Teambition · 热更1','https://www.teambition.com/task/6a7433309bcc7c13cbc53bf0'],['Teambition · 热更2','https://www.teambition.com/task/6a7a93f22824721ce0d6f9cf']]},
+      {category:'版本需求',detail:'4.0强更',values:{zh:0,en:0,ru:0,tr:13616,de:8501},proof:{tr:6844,de:9805},links:[['Teambition · 强更','https://www.teambition.com/task/6a0176ac019a3aa3c5953bad'],['Teambition · 强更补充','https://www.teambition.com/task/6a61694f624906b38dbf1aa4']]},
+      {category:'产品零散需求',detail:'8月',values:{zh:1125,en:1125,ru:538,tr:538,de:538},proof:{},links:[['WPS · 2026年线上临时翻译需求','https://365.kdocs.cn/l/ccLAVkqb0Jon']]},
+      {category:'运营需求',detail:'8月',values:{zh:4276,en:4276,ru:1823,tr:1823,de:1823},proof:{},links:[['WPS · 运营日常翻译需求','https://365.kdocs.cn/l/ctB8N1wPK4vO']]},
+      {category:'社区运营需求',detail:'8月',values:{zh:1255,en:1255,ru:978,tr:978,de:0},proof:{},links:[['WPS · 社区运营翻译需求','https://365.kdocs.cn/l/cmZjGtkAyUFN']]}
+    ];
+    const julyRecords=[
+      {category:'版本需求',detail:'4.0强更',values:{zh:19801,en:20301,ru:14290,tr:1075,de:11753},proof:{tr:1075,de:6587},links:[['Teambition · 强更','https://www.teambition.com/task/6a0176ac019a3aa3c5953bad'],['Teambition · 强更补充','https://www.teambition.com/task/6a61694f624906b38dbf1aa4']]},
+      {category:'版本需求',detail:'3.9热更补充',values:{zh:1699,en:1699,ru:1452,tr:1452,de:1452},proof:{tr:1452},links:[['Teambition · 热更补充','https://www.teambition.com/task/6a478a60c42f9794ae48ff09']]},
+      {category:'产品零散需求',detail:'7月',values:{zh:183,en:183,ru:106,tr:106,de:106},proof:{},links:[['WPS · 2026年线上临时翻译需求','https://365.kdocs.cn/l/ccLAVkqb0Jon']]},
+      {category:'运营需求',detail:'7月',values:{zh:3550,en:3550,ru:1406,tr:1406,de:1406},proof:{tr:1089},links:[['WPS · 运营日常翻译需求','https://365.kdocs.cn/l/crKlk86sfihB']]},
+      {category:'社区运营需求',detail:'7月',values:{zh:1494,en:1495,ru:898,tr:898,de:0},proof:{},links:[['WPS · 社区运营翻译需求','https://365.kdocs.cn/l/cmZjGtkAyUFN']]}
+    ];
+    const historicalRecords={
+      '26年1月':[
+        {category:'版本需求',detail:'3.7热更2',values:{zh:0,en:0,ru:1000,tr:1612,de:1612},proof:{tr:1612,de:569},links:[['Teambition · 需求1','https://www.teambition.com/task/692960b37106881bc59fec93']]},
+        {category:'版本需求',detail:'3.8强更',values:{zh:3700,en:3010,ru:2461,tr:0,de:0},proof:{en:89},links:[['Teambition · 需求1','https://www.teambition.com/task/695f76472ef1012389164de5']]},
+        {category:'剧情需求',detail:'2503妃子妮妙',values:{zh:0,en:0,ru:5051,tr:0,de:0},proof:{},links:[['Teambition · 需求1','https://www.teambition.com/task/6953676c1456b001c3c9d81c']]},
+        {category:'产品零散需求',detail:'1月',values:{zh:521,en:521,ru:231,tr:231,de:231},proof:{},links:[['WPS · 需求','https://365.kdocs.cn/l/ccLAVkqb0Jon']]},
+        {category:'运营需求',detail:'1月',values:{zh:5768,en:5768,ru:4451,tr:4451,de:3666},proof:{tr:2147},links:[['WPS · 需求','https://365.kdocs.cn/l/caRjOiAoRIK7']]},
+        {category:'社区运营需求',detail:'1月',values:{zh:2210,en:2210,ru:1317,tr:1317,de:0},proof:{},links:[['WPS · 需求','https://365.kdocs.cn/l/cmZjGtkAyUFN']]}
+      ],
+      '26年2月':[
+        {category:'版本需求',detail:'3.8强更',values:{zh:900,en:900,ru:2624,tr:3870,de:3256},proof:{tr:4516,de:1369},links:[['Teambition · 需求1','https://www.teambition.com/task/695f76472ef1012389164de5']]},
+        {category:'产品零散需求',detail:'2月',values:{zh:407,en:407,ru:250,tr:250,de:250},proof:{},links:[['WPS · 需求','https://365.kdocs.cn/l/ccLAVkqb0Jon']]},
+        {category:'运营需求',detail:'2月',values:{zh:3124,en:3124,ru:3054,tr:2749,de:2749},proof:{tr:2749},links:[['WPS · 需求','https://365.kdocs.cn/l/claTxdnAduKi']]},
+        {category:'社区运营需求',detail:'2月',values:{zh:778,en:778,ru:515,tr:426,de:0},proof:{},links:[['WPS · 需求','https://365.kdocs.cn/l/cmZjGtkAyUFN']]}
+      ],
+      '26年3月':[
+        {category:'版本需求',detail:'3.9强更',values:{zh:7000,en:6997,ru:4600,tr:0,de:0},proof:{},links:[['Teambition · 需求1','https://www.teambition.com/task/695f76472ef1012389164de5']]},
+        {category:'剧情需求',detail:'2302妃子-哈莉温Khaliun',values:{zh:4449,en:0,ru:2493,tr:0,de:0},proof:{},links:[['Teambition · 需求1','https://www.teambition.com/task/69c22f84cb54be73169446f7']]},
+        {category:'产品零散需求',detail:'英语校对历史活动/系统的改动',values:{zh:0,en:8000,ru:0,tr:7324,de:7791},proof:{tr:5519,de:6985},links:[['Teambition · 需求1','https://www.teambition.com/task/69a156ee3803c27ca29b0259']]},
+        {category:'产品零散需求',detail:'3月',values:{zh:169,en:169,ru:90,tr:90,de:90},proof:{},links:[['WPS · 需求','https://365.kdocs.cn/l/ccLAVkqb0Jon']]},
+        {category:'运营需求',detail:'3月',values:{zh:6462,en:6462,ru:2976,tr:2976,de:2976},proof:{},links:[['WPS · 需求','https://365.kdocs.cn/l/cuylHZ0DQo2b']]},
+        {category:'社区运营需求',detail:'3月',values:{zh:828,en:828,ru:484,tr:484,de:484},proof:{},links:[['WPS · 需求','https://365.kdocs.cn/l/cmZjGtkAyUFN']]}
+      ],
+      '26年4月':[
+        {category:'版本需求',detail:'3.9强更',values:{zh:1200,en:1200,ru:500,tr:1825,de:2813},proof:{tr:1825,de:263},links:[['Teambition · 需求1','https://www.teambition.com/task/69a156ee3803c27ca29b022a']]},
+        {category:'产品零散需求',detail:'4月',values:{zh:1387,en:1387,ru:735,tr:735,de:735},proof:{},links:[['WPS · 需求','https://365.kdocs.cn/l/ccLAVkqb0Jon']]},
+        {category:'运营需求',detail:'4月',values:{zh:5775,en:5775,ru:2373,tr:2373,de:2373},proof:{tr:2373},links:[['WPS · 需求','https://365.kdocs.cn/l/crVBOQPRog0X']]},
+        {category:'社区运营需求',detail:'4月',values:{zh:2042,en:2042,ru:1224,tr:1224,de:0},proof:{tr:916},links:[['WPS · 需求','https://365.kdocs.cn/l/cmZjGtkAyUFN']]}
+      ],
+      '26年5月':[
+        {category:'版本需求',detail:'3.9热更',values:{zh:999,en:999,ru:999,tr:0,de:1061},proof:{},links:[['Teambition · 需求1','https://www.teambition.com/task/6a0ebd7807878013df0050cc']]},
+        {category:'剧情需求',detail:'2303妃子 娜拉芙Nailahu',values:{zh:3743,en:0,ru:2403,tr:0,de:0},proof:{},links:[['Teambition · 需求1','https://www.teambition.com/task/6a043d30468914e10a1d96f5']]},
+        {category:'产品零散需求',detail:'5月',values:{zh:974,en:974,ru:602,tr:551,de:602},proof:{tr:445},links:[['WPS · 需求','https://365.kdocs.cn/l/ccLAVkqb0Jon']]},
+        {category:'运营需求',detail:'5月',values:{zh:4693,en:4693,ru:2129,tr:2129,de:2129},proof:{tr:2129},links:[['WPS · 需求','https://365.kdocs.cn/l/clEcVCCEFtxk']]},
+        {category:'社区运营需求',detail:'5月',values:{zh:1753,en:1753,ru:911,tr:911,de:0},proof:{tr:911},links:[['WPS · 需求','https://365.kdocs.cn/l/cmZjGtkAyUFN']]}
+      ],
+      '26年6月':[
+        {category:'版本需求',detail:'4.0强更',values:{zh:500,en:500,ru:338,tr:0,de:0},proof:{},links:[['Teambition · 需求1','https://www.teambition.com/task/6a0176ac019a3aa3c5953bad']]},
+        {category:'版本需求',detail:'3.9热更',values:{zh:1335,en:1335,ru:1000,tr:2500,de:2656},proof:{tr:2500,de:2656},links:[['Teambition · 需求1','https://www.teambition.com/task/6a0ebd7807878013df00509a']]},
+        {category:'产品零散需求',detail:'英语校对历史活动&系统的改动',values:{zh:4825,en:4825,ru:0,tr:4825,de:4825},proof:{tr:1252,de:1042},links:[['Teambition · 需求1','https://www.teambition.com/task/6a1f9ad1e8fa16697e7dc175']]},
+        {category:'剧情需求',detail:'1423勇士-长卿ChangQing',values:{zh:4636,en:0,ru:3213,tr:0,de:0},proof:{},links:[['Teambition · 需求1','https://www.teambition.com/task/6a1f9ad1e8fa16697e7dc175']]},
+        {category:'剧情需求',detail:'2423妃子上官令仪LingYi',values:{zh:5890,en:0,ru:4227,tr:0,de:0},proof:{},links:[['Teambition · 需求1','https://www.teambition.com/task/6a043d30468914e10a1d96f5']]},
+        {category:'产品零散需求',detail:'6月',values:{zh:191,en:192,ru:97,tr:97,de:97},proof:{},links:[['WPS · 需求','https://365.kdocs.cn/l/ccLAVkqb0Jon']]},
+        {category:'运营需求',detail:'6月',values:{zh:4093,en:4093,ru:1726,tr:1727,de:1727},proof:{},links:[['WPS · 需求','https://365.kdocs.cn/l/crKlk86sfihB']]},
+        {category:'社区运营需求',detail:'6月',values:{zh:1297,en:1297,ru:652,tr:652,de:0},proof:{},links:[['WPS · 需求','https://365.kdocs.cn/l/cmZjGtkAyUFN']]}
+      ]
+    };
+    const datasets={...historicalRecords,'26年7月':julyRecords,'26年8月':augustRecords};
+    const monthOrder=['26年8月','26年7月','26年6月','26年5月','26年4月','26年3月','26年2月','26年1月'];
+    let activeMonth='26年8月';
+    let records=datasets[activeMonth];
+    const totalOverrides={'26年6月':{zh:22267,en:11742,ru:10915,tr:13553,de:13003}};
+    const fmt=n=>Number(n||0).toLocaleString('zh-CN');
+    const sumLang=key=>totalOverrides[activeMonth]?.[key]??records.reduce((s,r)=>s+(r.values[key]||0)+(r.proof?.[key]||0),0);
+    const displayValue=(r,key)=>{const total=(r.values[key]||0)+(r.proof?.[key]||0);return r.proof?.[key]?`${fmt(total)}<span class="proof-inline">(校${fmt(r.proof[key])})</span>`:fmt(total)};
+    const core=['zh','en','ru','tr','de'];
+    function renderMetrics(){const allLanguageTotal=core.slice(1).reduce((s,k)=>s+sumLang(k),0);const metrics=[['简中总量',sumLang('zh'),'字','', null],['英语总量',sumLang('en'),'字','accent','en'],['俄语总量',sumLang('ru'),'词','','ru'],['土耳其语总量',sumLang('tr'),'词','warm','tr'],['德语总量',sumLang('de'),'词','','de'],['梦加有效语言合计',allLanguageTotal,'英+俄+土+德','accent',null]];document.getElementById('metrics').innerHTML=metrics.map(([l,v,u,c,key])=>{const pct=key?`${(sumLang(key)/allLanguageTotal*100).toFixed(1)}%`:'';return `<div class="metric ${c}"><div class="label">${l}</div><div class="value">${fmt(v)}<span class="unit">${u}</span></div>${key?`<div class="metric-share"><div class="metric-share-track"><div class="metric-share-fill" style="width:${pct}"></div></div><span>${pct}</span></div>`:''}</div>`}).join('')}
+    function renderTable(){const rows=records; document.getElementById('resultCount').textContent=`显示 ${rows.length} / ${records.length} 条`; document.getElementById('empty').hidden=rows.length>0; document.getElementById('detailBody').innerHTML=rows.map(r=>`<tr><td class="category">${r.category}</td><td class="detail">${r.detail}</td><td class="num">${displayValue(r,'zh')}</td><td class="num">${displayValue(r,'en')}</td><td class="num">${displayValue(r,'ru')}</td><td class="num">${displayValue(r,'tr')}</td><td class="num">${displayValue(r,'de')}</td><td><div class="links">${r.links.map(([label,url])=>`<a class="link" href="${url}" target="_blank" rel="noopener">↗ ${label}</a>`).join('')}</div></td></tr>`).join('')}
+    function render(){renderMetrics();renderTable();document.getElementById('monthSelect').value=activeMonth;document.getElementById('scopeText').textContent=`统计范围：${activeMonth} · 仅统计五种语言`;const effective=core.slice(1).reduce((s,k)=>s+sumLang(k),0);document.getElementById('effectiveText').innerHTML=`<b>梦加有效语言合计 ${fmt(effective)}</b> = 英语 ${fmt(sumLang('en'))} + 俄语 ${fmt(sumLang('ru'))} + 土耳其语 ${fmt(sumLang('tr'))} + 德语 ${fmt(sumLang('de'))}`}
+    document.getElementById('monthSelect').addEventListener('change',e=>{activeMonth=e.target.value;records=datasets[activeMonth];render()});
+    render();
+  </script>
+</body>
+</html>
