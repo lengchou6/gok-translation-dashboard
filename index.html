@@ -33,7 +33,7 @@
     .metric-share-track{height:3px;flex:1;background:#36544a;border-radius:8px;overflow:hidden}
     .metric-share-fill{height:100%;background:var(--amber);border-radius:8px}
     .metric-share>span{min-width:35px;text-align:right;color:var(--muted);font-size:11px;font-variant-numeric:tabular-nums}
-    .metric:last-child{grid-column:1/-1;display:flex;align-items:center;justify-content:flex-start;gap:24px;border-right:0;border-top:1px solid #56634f;background:#303e33;padding:13px 24px}
+    .metric:last-child{grid-column:1/-1;display:flex;align-items:center;justify-content:flex-end;gap:24px;border-right:0;border-top:1px solid #56634f;background:#303e33;padding:13px 24px}
     .metric:last-child .label{margin:0;color:#dce2d5;font-size:13px}
     .metric:last-child .value{display:flex;align-items:center;gap:14px;font-size:36px;color:var(--amber)}
     .metric:last-child .unit{display:block;margin:0;color:var(--muted);line-height:1.4}
@@ -55,10 +55,10 @@
     .link{display:inline-flex;align-items:center;gap:5px;white-space:normal;overflow-wrap:anywhere;max-width:100%;min-height:30px;font-size:12px;text-decoration:none;padding:5px 10px;color:var(--cyan);background:#34473c;border:1px solid transparent;border-radius:6px;line-height:1.4}
     .link:hover{color:var(--text);background:#405548;border-color:#819687}
     .empty{padding:32px;text-align:center;color:var(--muted)}
-    .foot{display:flex;justify-content:space-between;gap:24px;margin-top:24px;padding-top:20px;color:var(--muted);font-size:12px;line-height:1.8}
+    .foot{display:flex;justify-content:flex-end;text-align:right;gap:24px;margin-top:24px;padding-top:20px;color:var(--muted);font-size:12px;line-height:1.8}
     .foot b{color:#c4d2b9;font-weight:500}
     @media(min-width:1600px){.wrap{padding-top:64px}}
-    @media(max-width:1100px){.wrap{width:calc(100% - 48px);padding-top:36px}.top{align-items:flex-start}.title{font-size:32px;gap:8px}.metric{padding:22px 16px}.metric .value{font-size:27px}.source{font-size:12px}.foot{flex-direction:column;gap:6px}}
+    @media(max-width:1100px){.wrap{width:calc(100% - 48px);padding-top:36px}.top{align-items:flex-start}.title{font-size:32px;gap:8px}.metric{padding:22px 16px}.metric .value{font-size:27px}.source{font-size:12px}.foot{flex-direction:column;align-items:flex-end;gap:6px}}
     @media(max-width:760px){.wrap{width:calc(100% - 32px);padding-top:28px}.top{flex-direction:column;gap:18px;padding-bottom:20px;margin-bottom:20px}.title{font-size:28px;gap:8px}.source{text-align:left}.source-tooltip{left:0;right:auto}.metrics{grid-template-columns:repeat(2,minmax(0,1fr));margin-bottom:30px}.metric{border-right:0;border-bottom:1px solid var(--line);padding:20px}.metric:nth-child(odd){border-right:1px solid var(--line)}.metric:nth-child(5){grid-column:1/-1;border-right:0}.metric:last-child{border-bottom:0;border-right:0;padding:16px 20px;flex-wrap:wrap;gap:8px 20px}.metric:last-child .value{font-size:34px}.metric:last-child .unit{margin:0;font-size:10px;text-align:left}.metric-share{margin-top:16px}.foot{font-size:12px}.section h2{font-size:17px}}
     @media(prefers-reduced-motion:no-preference){.link,.source-link,.title-month-select{transition:color .15s,background-color .15s,border-color .15s}}
 
