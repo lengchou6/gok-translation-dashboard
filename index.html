@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0b1220" />
-  <meta name="description" content="GOK 26年8月翻译量级概览" />
-  <title>GOK 26年8月翻译量级</title>
+  <meta name="description" content="GOK 26年9月翻译量级概览" />
+  <title>GOK 26年9月翻译量级</title>
   <style>
     :root{--bg:#08101e;--panel:#101b2d;--panel2:#15243a;--line:#263951;--text:#eef5ff;--muted:#8fa4bd;--cyan:#59d7e6;--amber:#f5b85a;--green:#7ee2ae;--red:#ff8c7a;--shadow:0 18px 50px rgba(0,0,0,.25)}
     *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 8% 0%,#142c4b 0%,transparent 32%),linear-gradient(145deg,#08101e 0%,#0b1424 50%,#09111e 100%);color:var(--text);font-family:Inter,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.5;min-height:100vh}
@@ -75,16 +75,22 @@
 <body>
   <main class="wrap">
     <header class="top">
-      <div><h1 class="title" id="pageTitle">GOK <select class="title-month-select" id="monthSelect" aria-label="选择月份"><option>26年8月</option><option>26年7月</option><option>26年6月</option><option>26年5月</option><option>26年4月</option><option>26年3月</option><option>26年2月</option><option>26年1月</option></select>翻译量级</h1></div>
+      <div><h1 class="title" id="pageTitle">GOK <select class="title-month-select" id="monthSelect" aria-label="选择月份"><option>26年9月</option><option>26年8月</option><option>26年7月</option><option>26年6月</option><option>26年5月</option><option>26年4月</option><option>26年3月</option><option>26年2月</option><option>26年1月</option></select>翻译量级</h1></div>
       <div class="source"><strong>数据来源</strong>《GOK_翻译需求量级统计》</div>
     </header>
     <section class="metrics" id="metrics"></section>
     <section class="section"><div class="section-head"><h2>需求明细</h2><span class="section-note" id="resultCount"></span></div><div class="table-wrap"><table><thead><tr><th>需求类别</th><th>需求细化</th><th>简中</th><th>英语</th><th>俄语</th><th>土耳其语</th><th>德语</th><th>需求链接</th></tr></thead><tbody id="detailBody"></tbody></table><div class="empty" id="empty" hidden>没有匹配的需求记录</div></div></section>
-    <footer class="foot"><span id="scopeText">统计范围：26年8月 · 仅统计五种语言</span><span id="effectiveText"></span></footer>
+    <footer class="foot"><span id="scopeText">统计范围：26年9月 · 仅统计五种语言</span><span id="effectiveText"></span></footer>
   </main>
   <script>
     const languages=[
       {key:'zh',name:'简中',unit:'字'}, {key:'en',name:'英语',unit:'字'}, {key:'ru',name:'俄语',unit:'词'}, {key:'tr',name:'土耳其语',unit:'词'}, {key:'de',name:'德语',unit:'词'}
+    ];
+    const septemberRecords=[
+      {category:'版本需求',detail:'4.0热更1+4.1强更',values:{zh:1104,en:14601,ru:1981,tr:11047,de:9538},proof:{tr:8622,de:7541},links:[['Teambition · 热更1','https://www.teambition.com/task/6a7433309bcc7c13cbc53bf0'],['Teambition · 强更','https://www.teambition.com/task/6a7a93f22824721ce0d6fa03'],['Teambition · 强更补充','https://www.teambition.com/task/6a7a93f22824721ce0d6f9cf'],['Teambition · 强更公告','https://www.teambition.com/task/6abb1a6023fd9e7213587acd']]},
+      {category:'产品零散需求',detail:'9月',values:{zh:464,en:464,ru:308,tr:308,de:308},proof:{},links:[['WPS · 2026年线上临时翻译需求','https://365.kdocs.cn/l/ccLAVkqb0Jon']]},
+      {category:'运营需求',detail:'9月',values:{zh:3053,en:3053,ru:1493,tr:1493,de:1493},proof:{},links:[['WPS · 运营日常翻译需求','https://365.kdocs.cn/l/csKKzlIKNqEg']]},
+      {category:'社区运营需求',detail:'9月',values:{zh:1732,en:1732,ru:978,tr:978,de:0},proof:{},links:[['WPS · 社区运营翻译需求','https://365.kdocs.cn/l/cmZjGtkAyUFN']]}
     ];
     const augustRecords=[
       {category:'版本需求',detail:'4.0热更1+2',values:{zh:6570,en:9702,ru:5458,tr:0,de:0},proof:{},links:[['Teambition · 热更1','https://www.teambition.com/task/6a7433309bcc7c13cbc53bf0'],['Teambition · 热更2','https://www.teambition.com/task/6a7a93f22824721ce0d6f9cf']]},
@@ -147,9 +153,9 @@
         {category:'社区运营需求',detail:'6月',values:{zh:1297,en:1297,ru:652,tr:652,de:0},proof:{},links:[['WPS · 需求','https://365.kdocs.cn/l/cmZjGtkAyUFN']]}
       ]
     };
-    const datasets={...historicalRecords,'26年7月':julyRecords,'26年8月':augustRecords};
-    const monthOrder=['26年8月','26年7月','26年6月','26年5月','26年4月','26年3月','26年2月','26年1月'];
-    let activeMonth='26年8月';
+    const datasets={...historicalRecords,'26年7月':julyRecords,'26年8月':augustRecords,'26年9月':septemberRecords};
+    const monthOrder=['26年9月','26年8月','26年7月','26年6月','26年5月','26年4月','26年3月','26年2月','26年1月'];
+    let activeMonth='26年9月';
     let records=datasets[activeMonth];
     const totalOverrides={'26年6月':{zh:22267,en:11742,ru:10915,tr:13553,de:13003}};
     const fmt=n=>Number(n||0).toLocaleString('zh-CN');
