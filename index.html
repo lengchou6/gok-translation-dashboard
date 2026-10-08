@@ -42,17 +42,17 @@
     .section h2{font-size:18px;font-weight:600;letter-spacing:.02em;margin:0}
     .section-note{color:var(--muted);font-size:12px}
     .table-wrap{overflow:auto;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
-    table{width:100%;min-width:1050px;border-collapse:collapse;font-size:13px}
+    table{width:100%;min-width:900px;table-layout:fixed;border-collapse:collapse;font-size:13px}
     th{padding:16px 18px;background:var(--panel2);color:#b7c9ba;font-size:11px;font-weight:500;text-align:left;white-space:nowrap}
     td{padding:17px 18px;border-top:1px solid #345147;vertical-align:middle;text-align:left}
     th:nth-child(n+3):nth-child(-n+7),td.num{text-align:center}
     td.num{font-family:"Aptos","Segoe UI",sans-serif;font-weight:600;font-size:15px;color:var(--text);font-variant-numeric:tabular-nums}
     .category{font-weight:600;color:#e7ecdb;white-space:nowrap}
-    .detail{color:var(--muted);font-size:12px;min-width:110px}
+    .detail{color:var(--muted);font-size:12px;overflow-wrap:anywhere}
     tbody tr:hover{background:#214238}
     .proof-inline{display:block;margin-top:5px;color:var(--ruby);font-size:11px;font-weight:600;white-space:nowrap;line-height:1.3}
-    .links{display:flex;gap:8px 12px;flex-wrap:wrap;max-width:400px}
-    .link{display:inline-flex;align-items:center;gap:5px;white-space:nowrap;font-size:12px;text-decoration:none;padding:5px 9px;color:var(--cyan);background:#223f33;border:1px solid #3d5b49;border-radius:6px;line-height:1.4}
+    .links{display:flex;align-items:center;gap:6px;flex-wrap:wrap;width:100%;min-width:0}
+    .link{display:inline-flex;align-items:center;gap:5px;white-space:normal;overflow-wrap:anywhere;max-width:100%;font-size:12px;text-decoration:none;padding:5px 9px;color:var(--cyan);background:#223f33;border:1px solid #3d5b49;border-radius:6px;line-height:1.4}
     .link:hover{color:var(--amber);background:#2c4a3b;border-color:#82906b}
     .empty{padding:32px;text-align:center;color:var(--muted)}
     .foot{display:flex;justify-content:space-between;gap:24px;margin-top:24px;padding-top:20px;color:var(--muted);font-size:12px;line-height:1.8}
@@ -73,7 +73,7 @@
       .metric:last-child .value{font-size:clamp(29px,7vw,34px)}
       .table-wrap{overflow:visible;background:transparent;border:0;border-radius:0}
       table{display:block;min-width:0;font-size:12px}
-      thead{display:none}
+      colgroup,thead{display:none}
       tbody{display:grid;gap:12px}
       tbody tr{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden}
       td{display:block;min-width:0;padding:14px 5px;border-top:0}
@@ -92,12 +92,12 @@
 <body>
   <main class="wrap">
     <header class="top">
-      <div><h1 class="title" id="pageTitle">GOK <select class="title-month-select" id="monthSelect" aria-label="选择月份"><option>26年9月</option><option>26年8月</option><option>26年7月</option><option>26年6月</option><option>26年5月</option><option>26年4月</option><option>26年3月</option><option>26年2月</option><option>26年1月</option></select>翻译量级</h1></div>
+      <div><h1 class="title" id="pageTitle"><span>GOK翻译量级</span> <select class="title-month-select" id="monthSelect" aria-label="选择月份"><option>26年9月</option><option>26年8月</option><option>26年7月</option><option>26年6月</option><option>26年5月</option><option>26年4月</option><option>26年3月</option><option>26年2月</option><option>26年1月</option></select></h1></div>
       <div class="source"><strong>数据来源</strong><a class="source-link" href="https://www.kdocs.cn/l/cdI4CaciaAUJ" target="_blank" rel="noopener" aria-describedby="source-url">《GOK_翻译需求量级统计》<span class="source-tooltip" id="source-url" role="tooltip">https://www.kdocs.cn/l/cdI4CaciaAUJ</span></a></div>
     </header>
     <section class="metrics" id="metrics"></section>
-    <section class="section"><div class="section-head"><h2>需求明细</h2><span class="section-note" id="resultCount"></span></div><div class="table-wrap"><table><thead><tr><th>需求类别</th><th>需求细化</th><th>简中</th><th>英语</th><th>俄语</th><th>土耳其语</th><th>德语</th><th>需求链接</th></tr></thead><tbody id="detailBody"></tbody></table><div class="empty" id="empty" hidden>没有匹配的需求记录</div></div></section>
-    <footer class="foot"><span id="scopeText">统计范围：26年9月 · 仅统计五种语言</span><span id="effectiveText"></span></footer>
+    <section class="section"><div class="section-head"><h2>需求明细</h2></div><div class="table-wrap"><table><colgroup><col style="width:10%"><col style="width:14%"><col span="5" style="width:7%"><col style="width:41%"></colgroup><thead><tr><th>需求类别</th><th>需求细化</th><th>简中</th><th>英语</th><th>俄语</th><th>土耳其语</th><th>德语</th><th>需求链接</th></tr></thead><tbody id="detailBody"></tbody></table><div class="empty" id="empty" hidden>没有匹配的需求记录</div></div></section>
+    <footer class="foot"><span id="scopeText">统计范围：26年9月 · 中英俄土德</span></footer>
   </main>
   <script>
     const languages=[
@@ -180,8 +180,8 @@
     const displayValue=(r,key)=>{const total=(r.values[key]||0)+(r.proof?.[key]||0);return r.proof?.[key]?`${fmt(total)}<span class="proof-inline">(校${fmt(r.proof[key])})</span>`:fmt(total)};
     const core=['zh','en','ru','tr','de'];
     function renderMetrics(){const allLanguageTotal=core.slice(1).reduce((s,k)=>s+sumLang(k),0);const metrics=[['简中总量',sumLang('zh'),'字','', null],['英语总量',sumLang('en'),'字','accent','en'],['俄语总量',sumLang('ru'),'词','','ru'],['土耳其语总量',sumLang('tr'),'词','warm','tr'],['德语总量',sumLang('de'),'词','','de'],['梦加有效语言合计',allLanguageTotal,'英+俄+土+德','accent',null]];document.getElementById('metrics').innerHTML=metrics.map(([l,v,u,c,key])=>{const pct=key?`${(sumLang(key)/allLanguageTotal*100).toFixed(1)}%`:'';return `<div class="metric ${c}"><div class="label">${l}</div><div class="value">${fmt(v)}<span class="unit">${u}</span></div>${key?`<div class="metric-share"><div class="metric-share-track"><div class="metric-share-fill" style="width:${pct}"></div></div><span>${pct}</span></div>`:''}</div>`}).join('')}
-    function renderTable(){const rows=records; document.getElementById('resultCount').textContent=`显示 ${rows.length} / ${records.length} 条`; document.getElementById('empty').hidden=rows.length>0; document.getElementById('detailBody').innerHTML=rows.map(r=>`<tr><td class="category">${r.category}</td><td class="detail">${r.detail}</td><td class="num" data-label="简中 · 字">${displayValue(r,'zh')}</td><td class="num" data-label="英语 · 字">${displayValue(r,'en')}</td><td class="num" data-label="俄语 · 词">${displayValue(r,'ru')}</td><td class="num" data-label="土语 · 词">${displayValue(r,'tr')}</td><td class="num" data-label="德语 · 词">${displayValue(r,'de')}</td><td><div class="links">${r.links.map(([label,url])=>`<a class="link" href="${url}" target="_blank" rel="noopener" title="${url}">↗ ${label}</a>`).join('')}</div></td></tr>`).join('')}
-    function render(){renderMetrics();renderTable();document.getElementById('monthSelect').value=activeMonth;document.getElementById('scopeText').textContent=`统计范围：${activeMonth} · 仅统计五种语言`;const effective=core.slice(1).reduce((s,k)=>s+sumLang(k),0);document.getElementById('effectiveText').innerHTML=`<b>梦加有效语言合计 ${fmt(effective)}</b> = 英语 ${fmt(sumLang('en'))} + 俄语 ${fmt(sumLang('ru'))} + 土耳其语 ${fmt(sumLang('tr'))} + 德语 ${fmt(sumLang('de'))}`}
+    function renderTable(){const rows=records; document.getElementById('empty').hidden=rows.length>0; document.getElementById('detailBody').innerHTML=rows.map(r=>`<tr><td class="category">${r.category}</td><td class="detail">${r.detail}</td><td class="num" data-label="简中 · 字">${displayValue(r,'zh')}</td><td class="num" data-label="英语 · 字">${displayValue(r,'en')}</td><td class="num" data-label="俄语 · 词">${displayValue(r,'ru')}</td><td class="num" data-label="土语 · 词">${displayValue(r,'tr')}</td><td class="num" data-label="德语 · 词">${displayValue(r,'de')}</td><td><div class="links">${r.links.map(([label,url])=>`<a class="link" href="${url}" target="_blank" rel="noopener" title="${url}">↗ ${label}</a>`).join('')}</div></td></tr>`).join('')}
+    function render(){renderMetrics();renderTable();document.getElementById('monthSelect').value=activeMonth;document.getElementById('scopeText').textContent=`统计范围：${activeMonth} · 中英俄土德`}
     document.getElementById('monthSelect').addEventListener('change',e=>{activeMonth=e.target.value;records=datasets[activeMonth];render()});
     render();
   </script>
