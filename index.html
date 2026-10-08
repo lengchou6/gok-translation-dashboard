@@ -66,17 +66,23 @@
     /* 绿野仙踪：森林绿幕、黄砖道路与红宝石提示色 */
     :root{--bg:#102019;--panel:#172b22;--panel2:#203b2d;--line:#3e604b;--text:#f3f0df;--muted:#a9baa7;--cyan:#a8d6c2;--amber:#e1b85c;--ruby:#d86a58;--shadow:0 14px 32px rgba(0,0,0,.22)}
     body{background:var(--bg);background-image:radial-gradient(ellipse at 86% -10%,rgba(119,170,105,.24),transparent 34%),radial-gradient(ellipse at 8% 78%,rgba(24,83,56,.3),transparent 36%),linear-gradient(145deg,#102019 0%,#13261e 52%,#0d1914 100%)}
-    .source-link{color:var(--cyan);text-decoration:none;border-bottom:1px solid rgba(168,214,194,.42);padding-bottom:1px}.source-link:hover{color:#ffe7a7;border-bottom-color:var(--amber)}\n    .top{border-bottom-color:rgba(168,214,194,.28)}.eyebrow{color:var(--amber)}.title{color:#f5f2e6;text-shadow:0 3px 18px rgba(0,0,0,.3)}.source strong{color:var(--amber)}
+    .source-link{color:var(--cyan);text-decoration:none;border-bottom:1px solid rgba(168,214,194,.42);padding-bottom:1px}.source-link:hover{color:#ffe7a7;border-bottom-color:var(--amber)}
+    .top{border-bottom-color:rgba(168,214,194,.28)}.eyebrow{color:var(--amber)}.title{color:#f5f2e6;text-shadow:0 3px 18px rgba(0,0,0,.3)}.source strong{color:var(--amber)}
     .metric{background:linear-gradient(145deg,rgba(30,60,44,.94),rgba(20,42,32,.96));border-color:var(--line);border-top-color:#739d69}.metric.accent{border-top-color:var(--cyan)}.metric.warm{border-top-color:var(--amber)}.metric.accent .value{color:var(--cyan)}.metric.warm .value{color:var(--amber)}.metric:last-child{border-color:rgba(225,184,92,.62);background:linear-gradient(145deg,#263e2d,#1b3024)}.metric:last-child .value{color:var(--amber)}
     .metric-share-track{background:#34513e}.metric-share-fill{background:repeating-linear-gradient(90deg,#e1b85c 0 18px,#f0ca73 18px 21px,#b59a53 21px 24px);box-shadow:0 0 10px rgba(225,184,92,.22)}
     .section{border-top-color:rgba(168,214,194,.26)}.section h2{color:#f3f0df}.table-wrap{background:rgba(23,43,34,.96);border-color:var(--line)}th{background:#284536;color:#d0dfcf}td,th{border-bottom-color:#355540}td.num{color:#f4f0df}.link{color:#b4e3d1;background:rgba(107,170,126,.12);border-color:rgba(168,214,194,.34)}.link:hover{background:rgba(225,184,92,.14);border-color:rgba(225,184,92,.58);color:#ffe7a7}.proof-inline{color:var(--ruby)}.foot{border-top-color:rgba(168,214,194,.3);color:var(--muted)}.foot b{color:var(--amber)}
+    .source-link{position:relative;display:inline-block;cursor:pointer}
+    .source-link:focus-visible{outline:2px solid var(--amber);outline-offset:5px}
+    .source-tooltip{position:absolute;right:0;bottom:calc(100% + 10px);z-index:10;width:max-content;max-width:min(340px,calc(100vw - 40px));padding:10px 14px;border:1px solid var(--line);border-radius:10px;background:#263b30;color:var(--text);box-shadow:0 8px 24px rgba(0,0,0,.28);font-size:12px;font-weight:600;line-height:1.5;text-align:center;overflow-wrap:anywhere;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .15s ease}
+    .source-link:hover .source-tooltip,.source-link:focus .source-tooltip{opacity:1;visibility:visible}
+    @media(max-width:1050px){.source-tooltip{right:auto;left:0}}
   </style>
 </head>
 <body>
   <main class="wrap">
     <header class="top">
       <div><h1 class="title" id="pageTitle">GOK <select class="title-month-select" id="monthSelect" aria-label="选择月份"><option>26年9月</option><option>26年8月</option><option>26年7月</option><option>26年6月</option><option>26年5月</option><option>26年4月</option><option>26年3月</option><option>26年2月</option><option>26年1月</option></select>翻译量级</h1></div>
-      <div class="source"><strong>数据来源</strong><a class="source-link" href="https://www.kdocs.cn/l/cdI4CaciaAUJ" target="_blank" rel="noopener">《GOK_翻译需求量级统计》</a></div>
+      <div class="source"><strong>数据来源</strong><a class="source-link" href="https://www.kdocs.cn/l/cdI4CaciaAUJ" target="_blank" rel="noopener" aria-describedby="source-url">《GOK_翻译需求量级统计》<span class="source-tooltip" id="source-url" role="tooltip">https://www.kdocs.cn/l/cdI4CaciaAUJ</span></a></div>
     </header>
     <section class="metrics" id="metrics"></section>
     <section class="section"><div class="section-head"><h2>需求明细</h2><span class="section-note" id="resultCount"></span></div><div class="table-wrap"><table><thead><tr><th>需求类别</th><th>需求细化</th><th>简中</th><th>英语</th><th>俄语</th><th>土耳其语</th><th>德语</th><th>需求链接</th></tr></thead><tbody id="detailBody"></tbody></table><div class="empty" id="empty" hidden>没有匹配的需求记录</div></div></section>
