@@ -95,12 +95,26 @@
       .section h2{font-size:17px}
     }
     @media(prefers-reduced-motion:no-preference){.link,.source-link,.title-month-select{transition:color .15s,background-color .15s,border-color .15s}tbody tr{transition:background-color .15s}}
+
+    .month-picker{position:relative;display:inline-flex;letter-spacing:0}
+    .title-month-select{display:inline-flex;align-items:center;gap:13px;background-image:none;padding:8px 13px;min-height:42px}
+    .month-chevron{width:7px;height:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg);margin-top:-4px;opacity:.75}
+    .title-month-select[aria-expanded="true"]{border-color:#86A992;background:#EDF4EA}
+    .title-month-select[aria-expanded="true"] .month-chevron{transform:rotate(225deg);margin-top:4px}
+    .month-menu{position:absolute;top:calc(100% + 8px);left:0;z-index:50;display:grid;gap:3px;width:184px;max-width:calc(100vw - 32px);max-height:320px;overflow-y:auto;overscroll-behavior:contain;padding:6px;background:#FAFCF9;border:1px solid #C8DACB;border-radius:12px;box-shadow:0 12px 32px rgba(35,60,49,.13),0 2px 6px rgba(35,60,49,.04);scrollbar-width:thin;scrollbar-color:#B5CABC transparent}
+    .month-menu[hidden]{display:none}
+    .month-option{display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;min-height:38px;padding:8px 12px;border:0;border-radius:7px;background:transparent;color:var(--muted);text-align:left;font:400 15px/1.4 "PingFang SC","Microsoft YaHei",sans-serif;cursor:pointer}
+    .month-option:hover,.month-option:focus-visible{background:#EEF4EB;color:var(--text)}
+    .month-option:focus-visible{outline:2px solid #7EA58A;outline-offset:-2px}
+    .month-option[aria-selected="true"]{background:#E1EDDF;color:#265E43;font-weight:600}
+    .month-option[aria-selected="true"]::after{content:"✓";font-size:14px}
+    @media(max-width:900px){.title-month-select{padding:7px 10px;min-height:36px;gap:11px}.month-menu{left:auto;right:0;width:172px;max-height:300px}.month-option{min-height:40px}}
   </style>
 </head>
 <body>
   <main class="wrap">
     <header class="top">
-      <div><h1 class="title" id="pageTitle"><span>GOK 翻译量级</span> <select class="title-month-select" id="monthSelect" aria-label="选择月份"><option>26年10月</option><option>26年9月</option><option>26年8月</option><option>26年7月</option><option>26年6月</option><option>26年5月</option><option>26年4月</option><option>26年3月</option><option>26年2月</option><option>26年1月</option></select></h1></div>
+      <div><h1 class="title" id="pageTitle"><span>GOK 翻译量级</span> <span class="month-picker" id="monthPicker"><button class="title-month-select" id="monthSelect" type="button" aria-label="选择月份" aria-haspopup="listbox" aria-expanded="false" aria-controls="monthMenu"><span id="monthLabel">26年10月</span><span class="month-chevron" aria-hidden="true"></span></button><span class="month-menu" id="monthMenu" role="listbox" aria-label="月份" hidden></span></span></h1></div>
       <div class="source"><strong>数据来源</strong><a class="source-link" href="https://www.kdocs.cn/l/cdI4CaciaAUJ" target="_blank" rel="noopener" aria-describedby="source-url">《GOK_翻译需求量级统计》<span class="source-tooltip" id="source-url" role="tooltip">https://www.kdocs.cn/l/cdI4CaciaAUJ</span></a></div>
     </header>
     <section class="metrics" id="metrics"></section>
@@ -190,8 +204,34 @@
     const core=['zh','en','ru','tr','de'];
     function renderMetrics(){const allLanguageTotal=core.slice(1).reduce((s,k)=>s+sumLang(k),0);const metrics=[['简中总量',sumLang('zh'),'字','', null],['英语总量',sumLang('en'),'字','accent','en'],['俄语总量',sumLang('ru'),'词','','ru'],['土耳其语总量',sumLang('tr'),'词','warm','tr'],['德语总量',sumLang('de'),'词','','de'],['梦加有效语言合计',allLanguageTotal,'英+俄+土+德','accent',null]];document.getElementById('metrics').innerHTML=metrics.map(([l,v,u,c,key])=>{const pct=key?`${(sumLang(key)/allLanguageTotal*100).toFixed(1)}%`:'';return `<div class="metric ${c}"><div class="label">${l}</div><div class="value">${fmt(v)}<span class="unit">${u}</span></div>${key?`<div class="metric-share"><div class="metric-share-track"><div class="metric-share-fill" style="width:${pct}"></div></div><span>${pct}</span></div>`:''}</div>`}).join('')}
     function renderTable(){const rows=records; document.getElementById('empty').hidden=rows.length>0; document.getElementById('detailBody').innerHTML=rows.map(r=>`<tr><td class="category">${r.category}</td><td class="detail">${r.detail}</td><td class="num" data-label="简中 · 字">${displayValue(r,'zh')}</td><td class="num" data-label="英语 · 字">${displayValue(r,'en')}</td><td class="num" data-label="俄语 · 词">${displayValue(r,'ru')}</td><td class="num" data-label="土语 · 词">${displayValue(r,'tr')}</td><td class="num" data-label="德语 · 词">${displayValue(r,'de')}</td><td><div class="links">${r.links.map(([label,url])=>`<a class="link" href="${url}" target="_blank" rel="noopener" title="${url}">↗ ${label}</a>`).join('')}</div></td></tr>`).join('')}
-    function render(){renderMetrics();renderTable();document.getElementById('monthSelect').value=activeMonth;document.getElementById('scopeText').textContent=`统计范围：${activeMonth} · 中英俄土德`}
-    document.getElementById('monthSelect').addEventListener('change',e=>{activeMonth=e.target.value;records=datasets[activeMonth];render()});
+    function render(){renderMetrics();renderTable();document.getElementById('monthLabel').textContent=activeMonth;document.querySelectorAll('.month-option').forEach(option=>{option.setAttribute('aria-selected',String(option.dataset.month===activeMonth));option.tabIndex=option.dataset.month===activeMonth?0:-1});document.getElementById('scopeText').textContent=`统计范围：${activeMonth} · 中英俄土德`}
+
+    const monthPicker=document.getElementById('monthPicker');
+    const monthTrigger=document.getElementById('monthSelect');
+    const monthMenu=document.getElementById('monthMenu');
+    monthMenu.innerHTML=monthOrder.map((month,index)=>`<button type="button" class="month-option" role="option" id="month-option-${index}" data-month="${month}" aria-selected="${month===activeMonth}" tabindex="${month===activeMonth?0:-1}">${month}</button>`).join('');
+    const monthOptions=[...monthMenu.querySelectorAll('.month-option')];
+    function closeMonthMenu(restoreFocus=false){monthMenu.hidden=true;monthTrigger.setAttribute('aria-expanded','false');if(restoreFocus)monthTrigger.focus()}
+    function focusMonthOption(index){monthOptions[index].focus()}
+    function openMonthMenu(edge){monthMenu.hidden=false;monthTrigger.setAttribute('aria-expanded','true');const selected=monthOrder.indexOf(activeMonth);focusMonthOption(edge==='first'?0:edge==='last'?monthOptions.length-1:selected)}
+    monthTrigger.addEventListener('click',()=>{if(monthMenu.hidden)openMonthMenu();else closeMonthMenu()});
+    monthTrigger.addEventListener('keydown',event=>{if(event.key==='ArrowDown'||event.key==='ArrowUp'){event.preventDefault();openMonthMenu()}else if(event.key==='Escape')closeMonthMenu()});
+    monthOptions.forEach((option,index)=>{
+      option.addEventListener('click',()=>{activeMonth=option.dataset.month;records=datasets[activeMonth];render();closeMonthMenu(true)});
+      option.addEventListener('keydown',event=>{
+        let next=null;
+        if(event.key==='ArrowDown')next=(index+1)%monthOptions.length;
+        if(event.key==='ArrowUp')next=(index-1+monthOptions.length)%monthOptions.length;
+        if(event.key==='Home')next=0;
+        if(event.key==='End')next=monthOptions.length-1;
+        if(next!==null){event.preventDefault();focusMonthOption(next)}
+        else if(event.key==='Escape'){event.preventDefault();closeMonthMenu(true)}
+        else if(event.key==='Tab')closeMonthMenu(true);
+      });
+    });
+    document.addEventListener('click',event=>{if(!monthPicker.contains(event.target))closeMonthMenu()});
+    monthPicker.addEventListener('focusout',event=>{if(!monthPicker.contains(event.relatedTarget))closeMonthMenu()});
+
     render();
   </script>
 </body>
