@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#DFE9E2" />
-  <meta name="description" content="GOK 26年9月翻译量级概览" />
-  <title>GOK 26年9月翻译量级</title>
+  <meta name="description" content="GOK 26年10月翻译量级概览" />
+  <title>GOK 26年10月翻译量级</title>
   <style>
     :root{--bg:#DFE9E2;--panel:#F1F5EF;--panel2:#D0DFD3;--line:#B9CBBF;--text:#233C31;--muted:#5A6E61;--cyan:#315F49;--amber:#28634F;--ruby:#A85B36}
     *{box-sizing:border-box}
@@ -92,17 +92,18 @@
 <body>
   <main class="wrap">
     <header class="top">
-      <div><h1 class="title" id="pageTitle"><span>GOK翻译量级</span> <select class="title-month-select" id="monthSelect" aria-label="选择月份"><option>26年9月</option><option>26年8月</option><option>26年7月</option><option>26年6月</option><option>26年5月</option><option>26年4月</option><option>26年3月</option><option>26年2月</option><option>26年1月</option></select></h1></div>
+      <div><h1 class="title" id="pageTitle"><span>GOK翻译量级</span> <select class="title-month-select" id="monthSelect" aria-label="选择月份"><option>26年10月</option><option>26年9月</option><option>26年8月</option><option>26年7月</option><option>26年6月</option><option>26年5月</option><option>26年4月</option><option>26年3月</option><option>26年2月</option><option>26年1月</option></select></h1></div>
       <div class="source"><strong>数据来源</strong><a class="source-link" href="https://www.kdocs.cn/l/cdI4CaciaAUJ" target="_blank" rel="noopener" aria-describedby="source-url">《GOK_翻译需求量级统计》<span class="source-tooltip" id="source-url" role="tooltip">https://www.kdocs.cn/l/cdI4CaciaAUJ</span></a></div>
     </header>
     <section class="metrics" id="metrics"></section>
     <section class="section"><div class="section-head"><h2>需求明细</h2></div><div class="table-wrap"><table><colgroup><col style="width:10%"><col style="width:14%"><col span="5" style="width:7%"><col style="width:41%"></colgroup><thead><tr><th>需求类别</th><th>需求细化</th><th>简中</th><th>英语</th><th>俄语</th><th>土耳其语</th><th>德语</th><th>需求链接</th></tr></thead><tbody id="detailBody"></tbody></table><div class="empty" id="empty" hidden>没有匹配的需求记录</div></div></section>
-    <footer class="foot"><span id="scopeText">统计范围：26年9月 · 中英俄土德</span></footer>
+    <footer class="foot"><span id="scopeText">统计范围：26年10月 · 中英俄土德</span></footer>
   </main>
   <script>
     const languages=[
       {key:'zh',name:'简中',unit:'字'}, {key:'en',name:'英语',unit:'字'}, {key:'ru',name:'俄语',unit:'词'}, {key:'tr',name:'土耳其语',unit:'词'}, {key:'de',name:'德语',unit:'词'}
     ];
+    const octoberRecords=[{"category":"版本需求","detail":"4.2强更+4.1强更补充","values":{"zh":7775,"en":10560,"ru":8781,"tr":1849,"de":1129},"proof":{"tr":1849,"de":1129},"links":[["Teambition · 4.2强更","https://www.teambition.com/task/6aaca0623f2011cae20baf92"],["Teambition · 历史优化","https://www.teambition.com/task/6a7a93f22824721ce0d6fa03"]]},{"category":"产品零散需求","detail":"10月","values":{"zh":221,"en":221,"ru":87,"tr":87,"de":87},"proof":{"de":87},"links":[["WPS · 2026年线上临时翻译需求","https://365.kdocs.cn/l/ccLAVkqb0Jon"]]},{"category":"运营需求","detail":"10月","values":{"zh":3474,"en":3474,"ru":1363,"tr":1363,"de":1363},"proof":{"de":1143},"links":[["WPS · 运营日常翻译需求","https://365.kdocs.cn/l/cc2pgAplvJpX"]]},{"category":"社区运营需求","detail":"10月","values":{"zh":3013,"en":3013,"ru":1776,"tr":1776,"de":0},"proof":{"tr":1246},"links":[["WPS · 社区运营翻译需求","https://365.kdocs.cn/l/cmZjGtkAyUFN"]]}];
     const septemberRecords=[
       {category:'版本需求',detail:'4.0热更1+4.1强更',values:{zh:1104,en:14601,ru:1981,tr:11047,de:9538},proof:{tr:8622,de:7541},links:[['Teambition · 热更1','https://www.teambition.com/task/6a7433309bcc7c13cbc53bf0'],['Teambition · 历史优化','https://www.teambition.com/task/6a7a93f22824721ce0d6fa03'],['Teambition · 强更内容','https://www.teambition.com/task/6a7a93f22824721ce0d6f9cf'],['Teambition · 强更公告','https://www.teambition.com/task/6abb1a6023fd9e7213587acd']]},
       {category:'产品零散需求',detail:'9月',values:{zh:464,en:464,ru:308,tr:308,de:308},proof:{},links:[['WPS · 2026年线上临时翻译需求','https://365.kdocs.cn/l/ccLAVkqb0Jon']]},
@@ -170,9 +171,9 @@
         {category:'社区运营需求',detail:'6月',values:{zh:1297,en:1297,ru:652,tr:652,de:0},proof:{},links:[['WPS · 需求','https://365.kdocs.cn/l/cmZjGtkAyUFN']]}
       ]
     };
-    const datasets={...historicalRecords,'26年7月':julyRecords,'26年8月':augustRecords,'26年9月':septemberRecords};
-    const monthOrder=['26年9月','26年8月','26年7月','26年6月','26年5月','26年4月','26年3月','26年2月','26年1月'];
-    let activeMonth='26年9月';
+    const datasets={...historicalRecords,'26年7月':julyRecords,'26年8月':augustRecords,'26年9月':septemberRecords,'26年10月':octoberRecords};
+    const monthOrder=['26年10月','26年9月','26年8月','26年7月','26年6月','26年5月','26年4月','26年3月','26年2月','26年1月'];
+    let activeMonth='26年10月';
     let records=datasets[activeMonth];
     const totalOverrides={'26年6月':{zh:22267,en:11742,ru:10915,tr:13553,de:13003}};
     const fmt=n=>Number(n||0).toLocaleString('zh-CN');
