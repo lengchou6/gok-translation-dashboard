@@ -51,7 +51,7 @@
     .category{font-weight:600;color:var(--text);white-space:nowrap}
     .detail{color:var(--muted);font-size:12px;font-weight:400;overflow-wrap:anywhere}
     tbody tr:hover{background:#F3F7F1}
-    .proof-inline{display:block;margin-top:5px;color:var(--ruby);font-size:11px;font-weight:500;white-space:nowrap;line-height:1.4}
+    .proof-inline{display:block;min-height:1.4em;margin-top:5px;color:var(--ruby);font-size:11px;font-weight:500;white-space:nowrap;line-height:1.4}
     .links{display:flex;align-items:center;gap:8px;flex-wrap:wrap;width:100%;min-width:0}
     .link{display:inline-flex;align-items:center;gap:5px;white-space:normal;overflow-wrap:anywhere;max-width:100%;min-height:32px;font-size:12px;text-decoration:none;padding:6px 10px;color:var(--cyan);background:#F2F6EF;border:1px solid #E4ECE0;border-radius:6px;line-height:1.4}
     .link:hover{color:#204B36;background:#E4EFDF;border-color:#9FBAA1}
@@ -200,7 +200,7 @@
     const totalOverrides={'26年6月':{zh:22267,en:11742,ru:10915,tr:13553,de:13003}};
     const fmt=n=>Number(n||0).toLocaleString('zh-CN');
     const sumLang=key=>totalOverrides[activeMonth]?.[key]??records.reduce((s,r)=>s+(r.values[key]||0)+(r.proof?.[key]||0),0);
-    const displayValue=(r,key)=>{const value=r.values[key]||0;return r.proof?.[key]?`${fmt(value)}<span class="proof-inline">(校${fmt(r.proof[key])})</span>`:fmt(value)};
+    const displayValue=(r,key)=>{const value=r.values[key]||0;const proof=r.proof?.[key]||0;return `${fmt(value)}<span class="proof-inline"${proof?'':' aria-hidden="true"'}>${proof?`(校${fmt(proof)})`:''}</span>`};
     const core=['zh','en','ru','tr','de'];
     function renderMetrics(){const allLanguageTotal=core.slice(1).reduce((s,k)=>s+sumLang(k),0);const metrics=[['简中总量',sumLang('zh'),'字','', null],['英语总量',sumLang('en'),'字','accent','en'],['俄语总量',sumLang('ru'),'词','','ru'],['土耳其语总量',sumLang('tr'),'词','warm','tr'],['德语总量',sumLang('de'),'词','','de'],['梦加有效语言合计',allLanguageTotal,'英+俄+土+德','accent',null]];document.getElementById('metrics').innerHTML=metrics.map(([l,v,u,c,key])=>{const pct=key?`${(sumLang(key)/allLanguageTotal*100).toFixed(1)}%`:'';return `<div class="metric ${c}"><div class="label">${l}</div><div class="value">${fmt(v)}<span class="unit">${u}</span></div>${key?`<div class="metric-share"><div class="metric-share-track"><div class="metric-share-fill" style="width:${pct}"></div></div><span>${pct}</span></div>`:''}</div>`}).join('')}
     function renderTable(){const rows=records; document.getElementById('empty').hidden=rows.length>0; document.getElementById('detailBody').innerHTML=rows.map(r=>`<tr><td class="category">${r.category}</td><td class="detail">${r.detail}</td><td class="num" data-label="简中 · 字">${displayValue(r,'zh')}</td><td class="num" data-label="英语 · 字">${displayValue(r,'en')}</td><td class="num" data-label="俄语 · 词">${displayValue(r,'ru')}</td><td class="num" data-label="土语 · 词">${displayValue(r,'tr')}</td><td class="num" data-label="德语 · 词">${displayValue(r,'de')}</td><td><div class="links">${r.links.map(([label,url])=>`<a class="link" href="${url}" target="_blank" rel="noopener" title="${url}">↗ ${label}</a>`).join('')}</div></td></tr>`).join('')}
