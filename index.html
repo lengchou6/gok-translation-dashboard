@@ -13,28 +13,28 @@
     .wrap{width:min(1400px,calc(100% - 80px));margin:auto;padding:48px 0 32px}
     .top{display:flex;align-items:center;justify-content:space-between;gap:32px;padding-bottom:24px;margin-bottom:var(--space);border-bottom:1px solid #CDDAD0}
     .top>div:first-child{min-width:0}
-    .title{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin:0;font-size:clamp(27px,2.6vw,35px);font-weight:600;line-height:1.3;letter-spacing:-.025em}
+    .title{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin:0;font-size:clamp(27px,2.6vw,35px);font-weight:600;line-height:1.3;letter-spacing:-.025em}
     .title-month-select{appearance:none;cursor:pointer;color:var(--cyan);font:500 .68em/1.4 "PingFang SC","Microsoft YaHei",sans-serif;letter-spacing:0;padding:8px 31px 8px 13px;border:1px solid #C6D6CA;border-radius:8px;background-color:#F1F6F0;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 17px) 52%,calc(100% - 12px) 52%;background-size:5px 5px;background-repeat:no-repeat}
     .title-month-select:hover{border-color:#95B39E;background-color:#E7F0E7}
     .title-month-select option{font-size:16px;background:var(--panel);color:var(--text)}
     :focus-visible{outline:2px solid var(--amber);outline-offset:4px}
-    .source{flex-shrink:0;font-size:12px;line-height:1.8;text-align:right;color:var(--muted)}
+    .source{flex-shrink:0;font-size:13px;line-height:1.8;text-align:right;color:var(--muted)}
     .source strong{display:block;font-weight:500;font-size:12px;margin-bottom:4px}
     .source-link{position:relative;display:inline-block;color:var(--cyan);text-decoration:underline;text-decoration-color:#A1B9A8;text-underline-offset:5px}
     .source-link:hover{color:var(--amber);text-decoration-color:currentColor}
     .source-tooltip{position:absolute;right:0;bottom:calc(100% + 9px);z-index:20;width:max-content;max-width:min(340px,calc(100vw - 40px));padding:10px 14px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--text);box-shadow:0 6px 24px rgba(35,60,49,.12);font:500 12px/1.5 "Microsoft YaHei",sans-serif;text-align:center;overflow-wrap:anywhere;opacity:0;visibility:hidden;pointer-events:none}
     .source-link:hover .source-tooltip,.source-link:focus .source-tooltip{opacity:1;visibility:visible}
     .metrics{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));margin:0 0 var(--space);border:1px solid var(--line);border-radius:14px;background:var(--panel);overflow:hidden}
-    .metric{min-width:0;padding:26px 24px 24px;border-right:1px solid #E2EAE2}
+    .metric{min-width:0;padding:22px 24px;border-right:1px solid #E2EAE2}
     .metric:nth-child(5){border-right:0}
-    .metric .label{color:var(--muted);font-size:13px;margin-bottom:14px}
+    .metric .label{color:var(--muted);font-size:13px;margin-bottom:12px}
     .metric .value{color:var(--text);font-family:"Aptos","Segoe UI",sans-serif;font-size:36px;line-height:1.15;font-weight:600;letter-spacing:-.035em;font-variant-numeric:tabular-nums}
     .metric .unit{font-family:"Microsoft YaHei",sans-serif;font-size:12px;font-weight:400;color:var(--muted);margin-left:5px;letter-spacing:0}
     .metric-share{display:flex;align-items:center;gap:12px;margin-top:22px}
-    .metric-share-track{height:3px;flex:1;background:#DFE9DF;border-radius:8px;overflow:hidden}
+    .metric-share-track{height:4px;flex:1;background:#DFE9DF;border-radius:8px;overflow:hidden}
     .metric-share-fill{height:100%;background:#4F8367;border-radius:8px}
-    .metric-share>span{min-width:35px;text-align:right;color:var(--muted);font-size:11px;font-variant-numeric:tabular-nums}
-    .metric:last-child{grid-column:1/-1;display:flex;align-items:center;justify-content:flex-end;gap:20px;border-right:0;border-top:1px solid var(--line);background:transparent;padding:14px 24px}
+    .metric-share>span{min-width:35px;text-align:right;color:var(--muted);font-size:12px;font-variant-numeric:tabular-nums}
+    .metric:last-child{grid-column:1/-1;display:flex;align-items:center;justify-content:flex-end;gap:20px;border-right:0;border-top:1px solid var(--line);background:transparent;padding:10px 24px}
     .metric:last-child .label{margin:0;font-size:13px}
     .metric:last-child .value{display:flex;align-items:center;gap:14px;font-size:38px;color:var(--amber)}
     .metric:last-child .unit{display:block;margin:0;font-size:11px;line-height:1.4}
@@ -44,16 +44,16 @@
     .section-note{color:var(--muted);font-size:12px}
     .table-wrap{overflow:auto;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
     table{width:100%;min-width:900px;table-layout:fixed;border-collapse:collapse;font-size:13px}
-    th{padding:15px 18px;background:var(--panel2);color:var(--muted);font-size:12px;font-weight:500;text-align:left;white-space:nowrap}
-    td{padding:20px 18px;border-top:1px solid #E5ECE5;vertical-align:middle;text-align:left}
+    th{padding:14px 18px;background:var(--panel2);color:var(--muted);font-size:13px;font-weight:500;text-align:left;white-space:nowrap}
+    td{padding:16px 18px;border-top:1px solid #E5ECE5;vertical-align:middle;text-align:left}
     th:nth-child(n+3):nth-child(-n+7),td.num{text-align:center;padding-left:6px;padding-right:6px}
     td.num{font-family:"Aptos","Segoe UI",sans-serif;font-weight:600;font-size:16px;color:var(--text);font-variant-numeric:tabular-nums;line-height:1.35}
     .category{font-weight:600;color:var(--text);white-space:nowrap}
-    .detail{color:var(--muted);font-size:12px;font-weight:400;overflow-wrap:anywhere}
+    .detail{color:var(--muted);font-size:13px;font-weight:400;overflow-wrap:anywhere}
     tbody tr:hover{background:#F3F7F1}
     .proof-inline{display:block;min-height:1.4em;margin-top:5px;color:var(--ruby);font-size:11px;font-weight:500;white-space:nowrap;line-height:1.4}
     .links{display:flex;align-items:center;gap:8px;flex-wrap:wrap;width:100%;min-width:0}
-    .link{display:inline-flex;align-items:center;gap:5px;white-space:normal;overflow-wrap:anywhere;max-width:100%;min-height:32px;font-size:12px;text-decoration:none;padding:6px 10px;color:var(--cyan);background:#F2F6EF;border:1px solid #E4ECE0;border-radius:6px;line-height:1.4}
+    .link{display:inline-flex;align-items:center;gap:5px;white-space:normal;overflow-wrap:anywhere;max-width:100%;min-height:32px;font-size:13px;text-decoration:none;padding:6px 10px;color:var(--cyan);background:#F2F6EF;border:1px solid #E4ECE0;border-radius:6px;line-height:1.4}
     .link:hover{color:#204B36;background:#E4EFDF;border-color:#9FBAA1}
     .empty{padding:32px;text-align:center;color:var(--muted)}
     .foot{display:flex;justify-content:flex-end;text-align:right;gap:24px;margin-top:24px;padding-top:0;color:var(--muted);font-size:12px;line-height:1.8}
@@ -101,14 +101,49 @@
     .month-chevron{width:7px;height:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg);margin-top:-4px;opacity:.75}
     .title-month-select[aria-expanded="true"]{border-color:#86A992;background:#EDF4EA}
     .title-month-select[aria-expanded="true"] .month-chevron{transform:rotate(225deg);margin-top:4px}
-    .month-menu{position:absolute;top:calc(100% + 8px);left:0;z-index:50;display:grid;gap:3px;width:184px;max-width:calc(100vw - 32px);max-height:320px;overflow-y:auto;overscroll-behavior:contain;padding:6px;background:#FAFCF9;border:1px solid #C8DACB;border-radius:12px;box-shadow:0 12px 32px rgba(35,60,49,.13),0 2px 6px rgba(35,60,49,.04);scrollbar-width:thin;scrollbar-color:#B5CABC transparent}
+    .month-menu{position:absolute;top:calc(100% + 8px);left:0;z-index:50;display:grid;gap:3px;width:270px;max-width:calc(100vw - 32px);grid-template-columns:repeat(2,minmax(0,1fr));max-height:min(360px,calc(100dvh - 130px));overflow-y:auto;overscroll-behavior:contain;padding:6px;background:#FAFCF9;border:1px solid #C8DACB;border-radius:12px;box-shadow:0 12px 32px rgba(35,60,49,.13),0 2px 6px rgba(35,60,49,.04);scrollbar-width:thin;scrollbar-color:#B5CABC transparent}
     .month-menu[hidden]{display:none}
     .month-option{display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;min-height:38px;padding:8px 12px;border:0;border-radius:7px;background:transparent;color:var(--muted);text-align:left;font:400 15px/1.4 "PingFang SC","Microsoft YaHei",sans-serif;cursor:pointer}
     .month-option:hover,.month-option:focus-visible{background:#EEF4EB;color:var(--text)}
     .month-option:focus-visible{outline:2px solid #7EA58A;outline-offset:-2px}
     .month-option[aria-selected="true"]{background:#E1EDDF;color:#265E43;font-weight:600}
     .month-option[aria-selected="true"]::after{content:"✓";font-size:14px}
-    @media(max-width:900px){.title-month-select{padding:7px 10px;min-height:36px;gap:11px}.month-menu{left:auto;right:0;width:172px;max-height:300px}.month-option{min-height:40px}}
+    @media(max-width:900px){.title-month-select{padding:7px 10px;min-height:36px;gap:11px}.month-menu{left:auto;right:0;width:250px;max-height:min(330px,calc(100dvh - 110px))}.month-option{min-height:40px}}
+
+    .metric:first-child{background:#F0F5EF}
+    .amount{display:block}
+    .amount.is-zero{color:#7D8D82;font-weight:400}
+    .link{gap:7px}
+    .link-platform{color:#647B6A;font-size:11px;flex-shrink:0}
+    .link-name{color:var(--cyan);font-weight:500;min-width:0}
+    .link-arrow{font-size:11px;color:#647B6A;flex-shrink:0}
+    .month-option{gap:6px;padding:9px 10px;min-height:40px;font-size:14px}
+    @media(max-width:1100px) and (min-width:901px){.category{white-space:normal}}
+    @media(max-width:900px){
+      .source{font-size:12px;line-height:1.6}
+      .source strong{display:inline-block;margin:0 8px 0 0}
+      .top{gap:14px;padding-bottom:20px}
+      .metric{padding:16px 18px}
+      .metric:first-child{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:16px;border-right:0}
+      .metric:first-child .label{margin:0}
+      .metric:first-child .value{font-size:27px}
+      .metric:nth-child(odd){border-right:0}
+      .metric:nth-child(even){border-right:1px solid #E2EAE2}
+      .metric:nth-child(5){grid-column:auto}
+      .metric:nth-child(4),.metric:nth-child(5){border-bottom:0}
+      .metric:last-child{padding:12px 18px;border-right:0}
+      .metric .label{font-size:12px;margin-bottom:9px}
+      .metric-share{margin-top:13px;gap:10px}
+      .metric-share>span{font-size:11px}
+      .metric .value{font-size:29px}
+      .metric:last-child .label{margin:0}
+      .metric:last-child .value{font-size:32px}
+      td.category{font-size:13px}
+      td.detail{font-size:12px}
+      .link{font-size:12px}
+      .month-menu{right:0;left:auto}
+    }
+    @media(max-width:360px){.metric{padding:14px}.metric .value{font-size:27px}.metric:last-child{gap:6px 12px}.metric:last-child .value{font-size:29px}.month-menu{width:248px}}
   </style>
 </head>
 <body>
@@ -200,10 +235,10 @@
     const totalOverrides={'26年6月':{zh:22267,en:11742,ru:10915,tr:13553,de:13003}};
     const fmt=n=>Number(n||0).toLocaleString('zh-CN');
     const sumLang=key=>totalOverrides[activeMonth]?.[key]??records.reduce((s,r)=>s+(r.values[key]||0)+(r.proof?.[key]||0),0);
-    const displayValue=(r,key)=>{const value=r.values[key]||0;const proof=r.proof?.[key]||0;return `${fmt(value)}<span class="proof-inline"${proof?'':' aria-hidden="true"'}>${proof?`(校${fmt(proof)})`:''}</span>`};
+    const displayValue=(r,key)=>{const value=r.values[key]||0;const proof=r.proof?.[key]||0;return `<span class="amount${value===0?' is-zero':''}">${fmt(value)}</span><span class="proof-inline"${proof?'':' aria-hidden="true"'}>${proof?`(校${fmt(proof)})`:''}</span>`};
     const core=['zh','en','ru','tr','de'];
-    function renderMetrics(){const allLanguageTotal=core.slice(1).reduce((s,k)=>s+sumLang(k),0);const metrics=[['简中总量',sumLang('zh'),'字','', null],['英语总量',sumLang('en'),'字','accent','en'],['俄语总量',sumLang('ru'),'词','','ru'],['土耳其语总量',sumLang('tr'),'词','warm','tr'],['德语总量',sumLang('de'),'词','','de'],['梦加有效语言合计',allLanguageTotal,'英+俄+土+德','accent',null]];document.getElementById('metrics').innerHTML=metrics.map(([l,v,u,c,key])=>{const pct=key?`${(sumLang(key)/allLanguageTotal*100).toFixed(1)}%`:'';return `<div class="metric ${c}"><div class="label">${l}</div><div class="value">${fmt(v)}<span class="unit">${u}</span></div>${key?`<div class="metric-share"><div class="metric-share-track"><div class="metric-share-fill" style="width:${pct}"></div></div><span>${pct}</span></div>`:''}</div>`}).join('')}
-    function renderTable(){const rows=records; document.getElementById('empty').hidden=rows.length>0; document.getElementById('detailBody').innerHTML=rows.map(r=>`<tr><td class="category">${r.category}</td><td class="detail">${r.detail}</td><td class="num" data-label="简中 · 字">${displayValue(r,'zh')}</td><td class="num" data-label="英语 · 字">${displayValue(r,'en')}</td><td class="num" data-label="俄语 · 词">${displayValue(r,'ru')}</td><td class="num" data-label="土语 · 词">${displayValue(r,'tr')}</td><td class="num" data-label="德语 · 词">${displayValue(r,'de')}</td><td><div class="links">${r.links.map(([label,url])=>`<a class="link" href="${url}" target="_blank" rel="noopener" title="${url}">↗ ${label}</a>`).join('')}</div></td></tr>`).join('')}
+    function renderMetrics(){const allLanguageTotal=core.slice(1).reduce((s,k)=>s+sumLang(k),0);const metrics=[['简中总量',sumLang('zh'),'字','', null],['英语总量',sumLang('en'),'字','accent','en'],['俄语总量',sumLang('ru'),'词','','ru'],['土耳其语总量',sumLang('tr'),'词','warm','tr'],['德语总量',sumLang('de'),'词','','de'],['梦加有效语言合计',allLanguageTotal,'英+俄+土+德','accent',null]];document.getElementById('metrics').innerHTML=metrics.map(([l,v,u,c,key])=>{const pct=key?`${(sumLang(key)/allLanguageTotal*100).toFixed(1)}%`:'';return `<div class="metric ${c}"${l==='简中总量'?'':' title="含校对量"'}><div class="label">${l}</div><div class="value">${fmt(v)}<span class="unit">${u}</span></div>${key?`<div class="metric-share"><div class="metric-share-track"><div class="metric-share-fill" style="width:${pct}"></div></div><span>${pct}</span></div>`:''}</div>`}).join('')}
+    function renderTable(){const rows=records; document.getElementById('empty').hidden=rows.length>0; document.getElementById('detailBody').innerHTML=rows.map(r=>`<tr><td class="category">${r.category}</td><td class="detail">${r.detail}</td><td class="num" data-label="简中 · 字">${displayValue(r,'zh')}</td><td class="num" data-label="英语 · 字">${displayValue(r,'en')}</td><td class="num" data-label="俄语 · 词">${displayValue(r,'ru')}</td><td class="num" data-label="土语 · 词">${displayValue(r,'tr')}</td><td class="num" data-label="德语 · 词">${displayValue(r,'de')}</td><td><div class="links">${r.links.map(([label,url])=>`<a class="link" href="${url}" target="_blank" rel="noopener" title="${url}"><span class="link-platform">${label.split(' · ')[0]}</span><span class="link-name">${label.split(' · ').slice(1).join(' · ')||label}</span><span class="link-arrow" aria-hidden="true">↗</span></a>`).join('')}</div></td></tr>`).join('')}
     function render(){renderMetrics();renderTable();document.getElementById('monthLabel').textContent=activeMonth;document.querySelectorAll('.month-option').forEach(option=>{option.setAttribute('aria-selected',String(option.dataset.month===activeMonth));option.tabIndex=option.dataset.month===activeMonth?0:-1});document.getElementById('scopeText').textContent=`统计范围：${activeMonth} · 中英俄土德`}
 
     const monthPicker=document.getElementById('monthPicker');
@@ -220,8 +255,10 @@
       option.addEventListener('click',()=>{activeMonth=option.dataset.month;records=datasets[activeMonth];render();closeMonthMenu(true)});
       option.addEventListener('keydown',event=>{
         let next=null;
-        if(event.key==='ArrowDown')next=(index+1)%monthOptions.length;
-        if(event.key==='ArrowUp')next=(index-1+monthOptions.length)%monthOptions.length;
+        if(event.key==='ArrowDown')next=(index+2)%monthOptions.length;
+        if(event.key==='ArrowRight')next=(index+1)%monthOptions.length;
+        if(event.key==='ArrowUp')next=(index-2+monthOptions.length)%monthOptions.length;
+        if(event.key==='ArrowLeft')next=(index-1+monthOptions.length)%monthOptions.length;
         if(event.key==='Home')next=0;
         if(event.key==='End')next=monthOptions.length-1;
         if(next!==null){event.preventDefault();focusMonthOption(next)}
